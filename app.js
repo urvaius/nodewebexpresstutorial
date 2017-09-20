@@ -1,21 +1,8 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
-var sql = require('mssql');
-var config = {
-    user: 'books',
-    password: 'pluralsight1@',
-    server: 'esitleeloo',
-    database: 'Books',
 
-    options: {
-        encrypt: false //used for azure?
-    }
-};
-
-sql.connect(config, function (err) {
-    console.log(err);
-});
 var port = process.env.PORT || 5000;
 var nav = [{
     Link: '/Books',
@@ -26,7 +13,10 @@ var nav = [{
 }];
 var bookRouter = require('./src/routes/bookRoutes')(nav);
 var adminRouter = require('./src/routes/adminRoutes')(nav);
+var authRouter = require('./src/routes/authRoutes')(nav);
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.set('views', './src/views');
 
 
@@ -36,6 +26,7 @@ app.set('view engine', 'ejs');
 
 
 app.use('/Books', bookRouter);
+app.use('/Auth', authRouter);
 app.use('/Admin', adminRouter);
 app.get('/', function (req, res) {
     res.render('index', {
