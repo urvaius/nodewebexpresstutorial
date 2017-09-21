@@ -4,41 +4,39 @@ var mongodb = require('mongodb').MongoClient;
 
 
 var books = [{
-    title: 'War and Peace',
-    genre: 'Historical Fiction',
-    author: 'Lev Nikolayevich Tolstoy',
-    read: false
-},
-{
-    title: 'sword of shannara',
-    genre: 'Fantasy',
-    author: 'Terry brooks',
-    read: true
+        title: 'War and Peace',
+        genre: 'Historical Fiction',
+        author: 'Lev Nikolayevich Tolstoy',
+        read: false
+    },
+    {
+        title: 'sword of shannara',
+        genre: 'Fantasy',
+        author: 'Terry brooks',
+        read: true
 
-},
-{
-    title: 'Les Miserables',
-    genre: 'Historical Fiction',
-    author: 'forget his name',
-    read: true
-},
-{
-    title: 'The Time Machine',
-    genre: 'Science Fiction',
-    author: 'HG Wells',
-    read: false
+    },
+    {
+        title: 'Les Miserables',
+        genre: 'Historical Fiction',
+        author: 'forget his name',
+        read: true
+    },
+    {
+        title: 'The Time Machine',
+        genre: 'Science Fiction',
+        author: 'HG Wells',
+        read: false
 
-}
+    }
 ];
-
-
 
 var router = function (nav) {
 
     adminRouter.route('/addBooks')
         .get(function (req, res) {
-           // var url = 'mongodb://localhost:27017/libraryApp';
-           var url = 'mongodb://urvaius:Buffy11$@arne-5-mongo1-shard-00-00-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-01-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-02-ujozx.mongodb.net:27017/libraryApp?ssl=true&replicaSet=arne-5-mongo1-shard-0&authSource=admin';
+            // var url = 'mongodb://localhost:27017/libraryApp';
+            var url = 'mongodb://urvaius:Buffy11$@arne-5-mongo1-shard-00-00-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-01-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-02-ujozx.mongodb.net:27017/libraryApp?ssl=true&replicaSet=arne-5-mongo1-shard-0&authSource=admin';
             mongodb.connect(url, function (err, db) {
                 var collection = db.collection('books');
                 collection.insertMany(books,
@@ -48,7 +46,7 @@ var router = function (nav) {
                     }
                 );
             });
-           // res.send('inserting books');
+            // res.send('inserting books');
         });
 
     return adminRouter;
