@@ -7,10 +7,11 @@ var books = [{
         title: 'War and Peace',
         genre: 'Historical Fiction',
         author: 'Lev Nikolayevich Tolstoy',
+        bookId: 656,
         read: false
     },
     {
-        title: 'sword of shannara',
+        title: 'elf stones of shannara',
         genre: 'Fantasy',
         author: 'Terry brooks',
         read: true
@@ -20,6 +21,7 @@ var books = [{
         title: 'Les Miserables',
         genre: 'Historical Fiction',
         author: 'forget his name',
+        bookId: 24280,
         read: true
     },
     {
