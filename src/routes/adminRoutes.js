@@ -7,7 +7,7 @@ var books = [{
         title: 'War and Peace',
         genre: 'Historical Fiction',
         author: 'Lev Nikolayevich Tolstoy',
-        bookId: 656,
+        bookId:656,
         read: false
     },
     {
@@ -21,7 +21,7 @@ var books = [{
         title: 'Les Miserables',
         genre: 'Historical Fiction',
         author: 'forget his name',
-        bookId: 24280,
+        bookId:24280,
         read: true
     },
     {

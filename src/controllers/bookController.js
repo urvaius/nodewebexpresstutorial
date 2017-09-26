@@ -38,7 +38,7 @@ var bookController = function (bookService, nav) {
                     _id: id
                 },
                 function (err, results) {
-                    if (results.bookID) {
+                    if (results.bookId) {
                         bookService.getBookById(results.bookId,
                             function (err, book) {
                                 results.book = book;
@@ -60,7 +60,7 @@ var bookController = function (bookService, nav) {
         getIndex: getIndex,
         getById: getById,
         middleware: middleware
-    }
-}
+    };
+};
 
 module.exports = bookController;
