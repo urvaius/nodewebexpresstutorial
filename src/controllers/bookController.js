@@ -21,8 +21,8 @@ var bookController = function (bookService, nav) {
                         nav: nav,
                         books: results
                     });
-                });
-
+                }
+            );
         });
     };
 
@@ -42,6 +42,11 @@ var bookController = function (bookService, nav) {
                         bookService.getBookById(results.bookId,
                             function (err, book) {
                                 results.book = book;
+                                res.render('bookView',{
+                                    title: 'Books',
+                                    nav: nav,
+                                    book: results
+                                });
 
                             });
 
